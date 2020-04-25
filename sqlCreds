@@ -1,0 +1,4 @@
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'adminspassword';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
+FLUSH PRIVILEGES;
+CREATE database pentestLabsDB;
