@@ -3,7 +3,6 @@
 /public/storage
 /storage/*.key
 /storage/logs/laravel.log
-/vendor
 /.idea
 /.vagrant
 Homestead.json
