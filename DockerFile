@@ -1,0 +1,27 @@
+FROM ubuntu:18.04
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update
+RUN apt-get install -y mysql-server git net-tools php7.2 \
+	php7.2-fpm \
+	php7.2-common \
+	php7.2-pdo \
+	php7.2-mysqli \
+	php7.2-mbstring \
+	php7.2-xml \
+	php7.2-json \
+	php7.2-phar \
+	php7.2-zip \
+	php7.2-gd \
+	php7.2-dom
+
+RUN git clone https://github.com/Anon-Exploiter/adminPanelTakeover /root/adminPanelTakeover
+WORKDIR /root/adminPanelTakeover
+
+RUN service mysql start 1>/dev/null && \
+	mysql < sqlCreds && \
+	php artisan migrate 1>/dev/null && \
+	chmod +x queries.sh && \
+	./queries.sh 1>/dev/null && \
+	echo "[#] Challenge can be accessed at: http://$(hostname -I)" && \
+	php artisan serve --host=0.0.0.0 --port=80 1>/dev/null
