@@ -8,5 +8,5 @@ You can find me [@syed__umar](https://twitter.com/syed__umar) and the challenges
 
 #### Usage:
 ```bash
-docker run -it --rm uexpl0it/admin-panel-takeover:latest /bin/bash -c 'chmod +x run.sh && ./run.sh'
+docker run -it --rm uexpl0it/admin-panel-takeover
 ```
